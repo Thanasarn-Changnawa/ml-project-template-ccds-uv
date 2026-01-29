@@ -35,7 +35,7 @@ def train_epoch(
     model.train()
     total_loss = 0.0
 
-    for batch_idx, (data, target) in enumerate(tqdm(dataloader, desc="Training")):
+    for data, target in tqdm(dataloader, desc="Training"):
         data, target = data.to(device), target.to(device)
 
         optimizer.zero_grad()
@@ -121,7 +121,7 @@ def main():
     best_loss = float("inf")
 
     for epoch in range(num_epochs):
-        print(f"\nEpoch {epoch+1}/{num_epochs}")
+        print(f"\nEpoch {epoch + 1}/{num_epochs}")
 
         # Train
         train_loss = train_epoch(model, train_loader, criterion, optimizer, device)

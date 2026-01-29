@@ -1,7 +1,6 @@
 """Data loading and preprocessing utilities."""
 
 from pathlib import Path
-from typing import Tuple
 
 import numpy as np
 import torch
@@ -27,7 +26,7 @@ class CustomDataset(Dataset):
         """Return dataset length."""
         return len(self.data)
 
-    def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor]:
+    def __getitem__(self, idx: int) -> tuple[torch.Tensor, torch.Tensor]:
         """Get item at index.
 
         Args:
@@ -45,7 +44,7 @@ class CustomDataset(Dataset):
         return x, y
 
 
-def load_data(data_path: Path) -> Tuple[np.ndarray, np.ndarray]:
+def load_data(data_path: Path) -> tuple[np.ndarray, np.ndarray]:
     """Load data from file.
 
     Args:
