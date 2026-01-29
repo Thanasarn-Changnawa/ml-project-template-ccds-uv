@@ -40,7 +40,12 @@ class SimpleNN(nn.Module):
 
 
 class ConvNet(nn.Module):
-    """A simple convolutional neural network."""
+    """A simple convolutional neural network.
+
+    Note:
+        This architecture is designed for 32x32 input images.
+        The final spatial size after pooling layers will be 4x4.
+    """
 
     def __init__(self, num_classes: int = 10):
         """Initialize the model.
@@ -61,7 +66,7 @@ class ConvNet(nn.Module):
         """Forward pass.
 
         Args:
-            x: Input tensor
+            x: Input tensor of shape (batch_size, 3, 32, 32)
 
         Returns:
             Output tensor

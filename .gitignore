@@ -66,7 +66,6 @@ ENV/
 env/
 
 # IDEs
-.vscode/settings.json
 .idea/
 *.swp
 *.swo

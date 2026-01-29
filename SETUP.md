@@ -31,10 +31,11 @@ ruff --version
 
 ## VS Code Setup
 
-### 1. Open Workspace
-- Open VS Code
-- File → Open Workspace from File
-- Select `.vscode/ml-project.code-workspace`
+### 1. Open the project in VS Code
+Open VS Code and then open this folder:
+```bash
+code .
+```
 
 ### 2. Install Extensions
 When prompted, install recommended extensions:

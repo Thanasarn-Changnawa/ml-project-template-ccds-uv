@@ -70,6 +70,11 @@ def main():
     print("\n📓 Jupyter Notebooks:")
     all_checks.append(
         check_file_exists(
+            project_root / "notebooks/00_quickstart.ipynb", "00_quickstart.ipynb"
+        )
+    )
+    all_checks.append(
+        check_file_exists(
             project_root / "notebooks/01_experiment.ipynb", "01_experiment.ipynb"
         )
     )
@@ -119,8 +124,11 @@ def main():
             print(f"{status} Dev Dependency: {dep}")
             all_checks.append(has_dep)
 
+    except FileNotFoundError:
+        print("✗ Error: pyproject.toml not found")
+        all_checks.append(False)
     except Exception as e:
-        print(f"✗ Error reading pyproject.toml: {e}")
+        print(f"✗ Error reading pyproject.toml: {type(e).__name__}: {e}")
         all_checks.append(False)
 
     # Summary

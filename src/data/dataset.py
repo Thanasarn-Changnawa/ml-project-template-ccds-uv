@@ -73,5 +73,7 @@ def preprocess_data(data: np.ndarray) -> np.ndarray:
     # Normalize data
     mean = np.mean(data, axis=0)
     std = np.std(data, axis=0)
-    data = (data - mean) / (std + 1e-8)
+    # Prevent division by zero and ensure minimum std
+    std = np.maximum(std, 1e-8)
+    data = (data - mean) / std
     return data

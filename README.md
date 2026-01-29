@@ -51,7 +51,7 @@ A comprehensive template for Machine Learning projects using UV for dependency m
 
 2. **Clone this repository**:
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/Thanasarn-Changnawa/ml-project-template-ccds-uv.git
    cd ml-project-template-ccds-uv
    ```
 
@@ -120,9 +120,10 @@ ruff check --fix .
 
 This template includes pre-configured VS Code settings:
 
-1. **Open the workspace**:
-   - File → Open Workspace from File
-   - Select `.vscode/ml-project.code-workspace`
+1. **Open the project in VS Code**:
+   ```bash
+   code .
+   ```
 
 2. **Install recommended extensions** when prompted:
    - Python

@@ -48,6 +48,9 @@ def save_checkpoint(
         loss: Current loss
         save_path: Path to save checkpoint
     """
+    # Ensure directory exists
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+
     checkpoint = {
         "epoch": epoch,
         "model_state_dict": model.state_dict(),
@@ -73,6 +76,10 @@ def load_checkpoint(
 
     Returns:
         Tuple of (model, optimizer, epoch, loss)
+
+    Note:
+        This function uses torch.load without weights_only=True to support
+        loading optimizer state. Only load checkpoints from trusted sources.
     """
     checkpoint = torch.load(load_path, map_location=device)
     model.load_state_dict(checkpoint["model_state_dict"])
